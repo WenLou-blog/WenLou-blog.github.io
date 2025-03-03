@@ -1,3 +1,11 @@
+---
+permalink: /
+title: "WenLou-blog"
+author_profile: true
+redirect_from: 
+  - /about/
+  - /about.html
+---
 
 # Lou Wen
 
