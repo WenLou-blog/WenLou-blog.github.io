@@ -22,7 +22,7 @@ repository               : "wenlou-blog/wenlou-blog.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "../images/picture.png"
   name             : "Wen Lou"
   pronouns         : # example: "she/her"  
   bio              : ""
