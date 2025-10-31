@@ -3,7 +3,7 @@ title: "Support behind the scenes: the relationship between acknowledgement, coa
 collection: publications
 category: manuscripts
 permalink: /publication/2023-10-01-paper-title-number-1
-excerpt: 'Lou, W., He, J., Zhang, L. et al.'
+excerpt: '__Lou, W.__, He, J., Zhang, L. et al.'
 date: 2023-10-01
 venue: 'Scientometrics 128'
 ---
