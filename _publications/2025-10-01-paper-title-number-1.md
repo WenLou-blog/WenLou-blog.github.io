@@ -1,9 +1,9 @@
 ---
 title: "Factorize international mobility on academic performance: a time-varying DID method examining over 7million Chinese Scholars."
 collection: publications
-category: manuscripts
+category: Jounral
 permalink: /publication/2025-paper-title-number-1
-excerpt: 'This paper is about the number 1. The number 2 is left for future work.'
+excerpt: ' Lou, W.* & Gao, M.'
 date: 2025-10-01
-venue: 'Journal 1'
+venue: 'Jounral of Informetrics'
 ---
