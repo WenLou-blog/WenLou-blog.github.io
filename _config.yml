@@ -9,7 +9,7 @@
 # Basic Site Settings
 locale                   : "ch"
 site_theme               : "default"
-title                    : "WenLou-blog"
+title                    : "Wen Lou"
 title_separator          : "-"
 name                     : &name "WenLou"
 description              : &description "personal description"
