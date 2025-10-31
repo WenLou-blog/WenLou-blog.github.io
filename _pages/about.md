@@ -22,7 +22,7 @@ redirect_from:
 - Data Visualization
 - Innovative Thinking and Standardized Expression
 
-## Teaching (Undergraduate)
+## Teaching (Graduate)
 - Professional English
 - Research Methods for Information Resource Management
   
