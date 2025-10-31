@@ -3,7 +3,7 @@ title: "Factorize international mobility on academic performance: a time-varying
 collection: publications
 category: manuscripts
 permalink: /publication/2025-paper-title-number-1
-excerpt: ' Lou, W.* & Gao, M.'
+excerpt: '__Lou, W.*__ & Gao, M.'
 date: 2025-10-01
 venue: 'Jounral of Informetrics'
 ---
