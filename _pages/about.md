@@ -7,7 +7,6 @@ redirect_from:
   - /about.html
 ---
 
-# Lou Wen
 
 **Ph.D. in Management**  
 **Associate Professor, East China Normal University**  
