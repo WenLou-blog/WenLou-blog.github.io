@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "WenLou-blog"
+title: "WenLou"
 author_profile: true
 redirect_from: 
   - /about/
