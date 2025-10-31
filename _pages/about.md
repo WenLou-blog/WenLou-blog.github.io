@@ -17,14 +17,6 @@ redirect_from:
 - Health Informatics
 - Data Visualization
 - Sociology of Science
-
-## Teaching (Undergraduate)
-- Data Visualization
-- Innovative Thinking and Standardized Expression
-
-## Teaching (Graduate)
-- Professional English
-- Research Methods for Information Resource Management
   
 ## Academic Achievements
 - Published over 60 academic papers, including:
