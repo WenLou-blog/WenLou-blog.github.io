@@ -23,7 +23,7 @@ repository               : "wenlou-blog/wenlou-blog.github.io"
 author:
   # Biographic information
   avatar           : "../images/picture.png"
-  name             : "Wen Lou"
+  #name             : "Wen Lou"
   pronouns         : # example: "she/her"  
   bio              : "Associate Professor"
   location         : "Shanghai, China"
