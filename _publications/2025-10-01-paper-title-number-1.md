@@ -1,9 +1,10 @@
 ---
-title: "Factorize international mobility on academic performance: a time-varying DID method examining over 7million Chinese Scholars."
+title: "Factorizing International Mobility and Academic Performance: A Time-Varying DID Analysis of Over 7 Million Chinese Scholars"
 collection: publications
 category: manuscripts
-permalink: "https://doi.org/10.2139/ssrn.4967871" 
-excerpt: '__Lou, W.*__ & Gao, M.'
+excerpt: "__Lou, W.*__ & Gao, M."
 date: 2025-10-01
-venue: 'Jounral of Informetrics'
+venue: 'Journal of Informetrics'
 ---
+
+[Available at SSRN](https://doi.org/10.2139/ssrn.4967871)
