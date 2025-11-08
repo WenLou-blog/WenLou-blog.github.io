@@ -7,4 +7,4 @@ date: 2025-10-01
 venue: 'Journal of Informetrics'
 ---
 
-[Available at SSRN](https://doi.org/10.2139/ssrn.4967871)
+[Download PDF](https://doi.org/10.2139/ssrn.4967871)
