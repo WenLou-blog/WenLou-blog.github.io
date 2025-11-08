@@ -8,3 +8,4 @@ date: 2021-10-01
 venue: 'Information Processing & Management'
 ---
 ﻿
+[Download PDF](https://doi.org/10.1016/j.ipm.2021.102686 )
