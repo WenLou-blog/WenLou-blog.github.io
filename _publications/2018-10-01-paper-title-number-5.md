@@ -8,3 +8,4 @@ date: 2018-10-01
 venue: 'Scientometrics'
 ---
 ﻿
+[Download PDF]([https://doi.org/10.1007/s11192-018-2842-3 )
