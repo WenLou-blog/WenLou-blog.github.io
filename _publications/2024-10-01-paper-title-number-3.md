@@ -7,3 +7,4 @@ excerpt: 'Zhu, Y., Kim, D., Jiang, T., Zhao, Y., He, J., Chen, X., & __Lou, W.*_
 date: 2024-10-01
 venue: 'Journal of Informetrics'
 ---
+[Download PDF](https://doi.org/10.1016/j.joi.2023.101486 )
