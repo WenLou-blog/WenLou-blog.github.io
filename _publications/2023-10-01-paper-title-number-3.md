@@ -8,3 +8,4 @@ date: 2023-10-01
 venue: 'Library & Information Science Research'
 ---
 ﻿
+[Download PDF](https://doi.org/10.1016/j.lisr.2023.101239 )
