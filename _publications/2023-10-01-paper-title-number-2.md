@@ -8,3 +8,4 @@ date: 2023-10-01
 venue: 'Scientometrics 128'
 ---
 ﻿
+[Download PDF](https://doi.org/10.2139/ssrn.4090266 )
