@@ -12,6 +12,11 @@ redirect_from:
 **Associate Professor, East China Normal University**  
 **Supervisor for Master's and Ph.D. Students**
 
+Dr. Wen Lou is an Associate Professor and Doctoral/Master's Supervisor at East China Normal University. She received her Ph.D. in Management from Wuhan University in 2016. Her research focuses on Health Informatics and Sociology of Science, employing big data and AI methodologies in Open Science and healthcare research.
+
+She has led eight national and ministerial-level research projects and authored three academic books with over 70 publications, including papers in leading international journals such as IPM, JASIST, and JOI. She was a visiting scholar at Drexel University, Indiana University, and the University of Tennessee, and received the Shanghai Chenguang Scholar award in 2018.
+
+
 ## Research Interests
 - Health Informatics
 - Data Visualization
