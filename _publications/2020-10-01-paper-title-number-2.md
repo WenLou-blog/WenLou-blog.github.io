@@ -7,3 +7,4 @@ excerpt: '__Lou, W.__, Zhang, J., Li, K., & He, J.'
 date: 2020-10-01
 venue: 'Data and Information Management'
 ---
+[Download PDF](https://doi.org/10.2478/dim-2020-0006)
