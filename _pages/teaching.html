@@ -7,30 +7,23 @@ author_profile: true
 
 {% include base_path %}
 
-{% assign teaching_by_venue = site.teaching | group_by: "venue" %}
+## East China Normal University
 
-{% assign sorted_venues = teaching_by_venue | sort: "name" %}
-
-{% for venue_group in sorted_venues %}
-  {% if venue_group.name == "East China Normal University" %}
-    <h2>{{ venue_group.name }}</h2>
-    
-    {% for post in venue_group.items reversed %}
-      {% include archive-single.html %}
-    {% endfor %}
-    
-    {% unless forloop.last %}<hr>{% endunless %}
-  {% endif %}
+{% assign ecnu_teaching = site.teaching | where: "venue", "East China Normal University" %}
+{% for post in ecnu_teaching reversed %}
+  {% include archive-single.html %}
 {% endfor %}
 
-{% for venue_group in sorted_venues %}
-  {% unless venue_group.name == "East China Normal University" %}
-    <h2>{{ venue_group.name }}</h2>
-    
-    {% for post in venue_group.items reversed %}
-      {% include archive-single.html %}
-    {% endfor %}
-    
-    {% unless forloop.last %}<hr>{% endunless %}
-  {% endfor %}
-{% endunless %}
+## Wuhan University
+
+{% assign wuhan_teaching = site.teaching | where: "venue", "Wuhan University" %}
+{% for post in wuhan_teaching reversed %}
+  {% include archive-single.html %}
+{% endfor %}
+
+## Huazhong Normal University
+
+{% assign huazhong_teaching = site.teaching | where: "venue", "Huazhong Normal University" %}
+{% for post in huazhong_teaching reversed %}
+  {% include archive-single.html %}
+{% endfor %}
