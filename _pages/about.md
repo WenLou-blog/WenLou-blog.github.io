@@ -16,11 +16,24 @@ Dr. Wen Lou(楼雯) is an Associate Professor and Doctoral/Master's Supervisor a
 
 She has led eight national and ministerial-level research projects and authored three academic books with over 70 publications, including papers in leading international journals such as IPM, JASIST, and JOI. She was a visiting scholar at Drexel University, Indiana University, and the University of Tennessee, and received the Shanghai Chenguang Scholar award in 2018.
 
+## Appointments
+- **Associate Professor**, 2020-current
+Department of Information Management, School of Economics and Management, East China Normal University, China
+- **Research Fellow**, 2020-current
+Key Laboratory of Advanced Theory and Application in Statistics and Data Science (East China Normal University), Ministry of Education of China
+- **Visiting Scholar**, 2023
+School of Information Studies, University of Tennessee, Knoxville, USA
+- **Post-doc Research Fellow**, 2017-2020
+Faculty of Economics and Management, East China Normal University, China
+- **Visiting Scholar**, 2019-2020
+Luddy School of Informatics, Computing, And Engineering, Indiana University, Bloomington, USA
+- **Lecturer**, 2016-2019
+Department of Information Management, Faculty of Economics and Management, East China Normal University, China
 
 ## Research Interests
 - Health Informatics
-- Data Visualization
-- Sociology of Science
+- Science of Science
+- Scientific Data Management
   
 ## Academic Achievements
 - Published over 60 academic papers, including:
