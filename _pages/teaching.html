@@ -7,23 +7,16 @@ author_profile: true
 
 {% include base_path %}
 
-## East China Normal University
+<h2>East China Normal University</h2>
 
 {% assign ecnu_teaching = site.teaching | where: "venue", "East China Normal University" %}
 {% for post in ecnu_teaching reversed %}
   {% include archive-single.html %}
 {% endfor %}
 
-## Wuhan University
+<h2>Wuhan University / Central China Normal University</h2>
 
-{% assign wuhan_teaching = site.teaching | where: "venue", "Wuhan University" %}
-{% for post in wuhan_teaching reversed %}
-  {% include archive-single.html %}
-{% endfor %}
-
-## Huazhong Normal University
-
-{% assign huazhong_teaching = site.teaching | where: "venue", "Huazhong Normal University" %}
-{% for post in huazhong_teaching reversed %}
+{% assign other_teaching = site.teaching | where: "venue", "Wuhan University / Central China Normal University" %}
+{% for post in other_teaching reversed %}
   {% include archive-single.html %}
 {% endfor %}
