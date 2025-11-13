@@ -58,8 +58,21 @@ College of Information Technology, Nanjing Agricultural University, China
   - Shanghai Soft Science Key Project Youth Fund
 
 ## Honors and Awards
-- Shanghai Chenguang Scholar Program
-- Outstanding Case Award, National Library and Information Innovation Case Competition
+- China Excellent Youth Scientists in Information Science (July 2025)
+- Excellent Case Study in National Library and Information Innovation Case Competition (July 2021)
+- Excellent Mentor in Shanghai University Student Decision Simulation Competition (Sep 2019)
+- Shanghai 100 Best Young Scientists “Chenguang Scholar” (June 2018)
+- Outstanding Award of Information Resource Management in Shanghai Youth Scientists (Nov 2017)
+- Excellent Student Cadres of Wuhan University (June 2014, June 2015)
+- First prize of Academic Innovation Award Wuhan University Graduate Students (June 2013, June 2014)
+- National Award for Doctoral Students (Oct 2013)
+- The Top Ten Academic Stars of Graduate Student of Wuhan University (June 2012)
+- Best Paper Award in National Doctoral Colloquium in Library, Information and Archives Management (Nov 2013)
+- Best Paper Award in National Doctoral Colloquium in Information Science (Sep 2013)
+- Best Paper Award of Emerald Publishing Group Graduate Students (June 2013)
+- Outstanding Student Leader of Jiangsu Province (Dec 2012)
+- Top Ten Student Cadres of Nanjing Agricultural University (June 2009)
+- National Award for Undergraduate Students (Oct 2008)
 
 ## Academic Affiliations
 - Council Member, China Index Society
