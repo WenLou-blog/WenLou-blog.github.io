@@ -3,7 +3,7 @@ title: "Scientific Data Mining and Analytic "
 collection: teaching
 type: "Doctoral Course"
 venue: "East China Normal University"
-date: 2021-09-01
+term: "Fall 2021"
 location: "Shanghai, China"
 ---
 ﻿
