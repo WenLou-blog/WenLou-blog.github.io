@@ -3,7 +3,7 @@ title: "Business Data Analytics"
 collection: teaching
 type: "Undergraduate Course"
 venue: "East China Normal University"
-date: 2017-06-01
+term: "Summer 2017"
 location: "Shanghai, China"
 ---
 ﻿
