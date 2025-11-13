@@ -9,13 +9,28 @@ author_profile: true
 
 {% assign teaching_by_venue = site.teaching | group_by: "venue" %}
 
-{% for venue_group in teaching_by_venue %}
-<h2>{{ venue_group.name }}</h2>
-  
-  {% for post in venue_group.items reversed %}
-    {% include archive-single.html %}
-  {% endfor %}
-  
-  {% unless forloop.last %}<hr>{% endunless %}
-  
+{% assign sorted_venues = teaching_by_venue | sort: "name" %}
+
+{% for venue_group in sorted_venues %}
+  {% if venue_group.name == "East China Normal University" %}
+    <h2>{{ venue_group.name }}</h2>
+    
+    {% for post in venue_group.items reversed %}
+      {% include archive-single.html %}
+    {% endfor %}
+    
+    {% unless forloop.last %}<hr>{% endunless %}
+  {% endif %}
 {% endfor %}
+
+{% for venue_group in sorted_venues %}
+  {% unless venue_group.name == "East China Normal University" %}
+    <h2>{{ venue_group.name }}</h2>
+    
+    {% for post in venue_group.items reversed %}
+      {% include archive-single.html %}
+    {% endfor %}
+    
+    {% unless forloop.last %}<hr>{% endunless %}
+  {% endfor %}
+{% endunless %}
