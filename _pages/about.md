@@ -51,36 +51,36 @@ College of Information Technology, Nanjing Agricultural University, China
   - 5 papers in top Chinese journals such as *Journal of Library Science in China* and *Journal of the China Society for Scientific and Technical Information*
 
 ## Phd Candidate Supervisor
-- Tan Fu, 2024-2028
-- Yunfeng Gao, 2025-2029
+- 2024-2028, Tan Fu
+- 2025-2029, Yunfeng Gao
   
 ## Undergraduate Research Mentoring
-- Lin Shi, 2017
-- Wei Chen, 2018
-- Tingting Jiang, Xue Wang, 2019
-- Shimin Liang, Han Qin, Yunong Wang, 2020
-- Shuni Wen, Yanchen Dong, 2021
-- Yuanfei Zhang, Lingxin Zhang, Zhijie Zhu, 2022
-- Qingyun Wang, Jiaying Yuan, 2023
-- Kexin Wang, 2024
-- Yanxi Liu, Qiji Zhang, 2025
-- Xuhua Zhanghai, 2026
+- 2017, Lin Shi
+- 2018, Wei Chen
+- 2019, Tingting Jiang, Xue Wang
+- 2020, Shimin Liang, Han Qin, Yunong Wang
+- 2021, Shuni Wen, Yanchen Dong
+- 2022, Yuanfei Zhang, Lingxin Zhang, Zhijie Zhu
+- 2023, Qingyun Wang, Jiaying Yuan
+- 2024, Kexin Wang
+- 2025, Yanxi Liu, Qiji Zhang
+- 2026, Xuhua Zhanghai
 
 ## Master’s Mentoring
-- Yuchen Chen, Xiaoye Jiang, Hui Wang, 2016-2018.
-- Yiping Huang, 2017-2019.
-- Jiao Chen, Wei Chen, 2018-2020.
-- Zhen Cai, Zimu Li, Jie Zhang, Shaodan Zheng, 2019-2021.
-- Zilong Su, Yingzhen Peng, Yinying Sun, Jingjing Chen, 2020-2022.
-- Yunlu Chen, Xiaoman Liu, Junchen Lv, Shiqi Zhang, Junwei Liu, 2021-2023.
-- Xinyu Ma, 2021-2024.
-- Xiangyu Gong, Ye He, Yaning Li, Qianqian Xu, Lingxin Zhang, 2022-2024.
-- Mingzhu Gao, 2022-2025.
-- Yuxin Leng, Chang Liu, Shuangyang Shu, Qiyi Xue, 2023-2025.
-- Wenting Tang, 2024-2027.
-- Yu Li, Chuxuan Lin, Zhihao Liu, Suna Zhang, 2024-2026.
-- Hanxiao Sun, 2025-2028.
-- Shihao Li, Ke Luo, 2025-2027.
+- 2016-2018., Yuchen Chen, Xiaoye Jiang, Hui Wang
+- 2017-2019., Yiping Huang
+- 2018-2020., Jiao Chen, Wei Chen
+- 2019-2021., Zhen Cai, Zimu Li, Jie Zhang, Shaodan Zheng
+- 2020-2022., Zilong Su, Yingzhen Peng, Yinying Sun, Jingjing Chen
+- 2021-2023., Yunlu Chen, Xiaoman Liu, Junchen Lv, Shiqi Zhang, Junwei Liu
+- 2021-2024., Xinyu Ma
+- 2022-2024., Xiangyu Gong, Ye He, Yaning Li, Qianqian Xu, Lingxin Zhang
+- 2022-2025., Mingzhu Gao
+- 2023-2025., Yuxin Leng, Chang Liu, Shuangyang Shu, Qiyi Xue
+- 2024-2027., Wenting Tang
+- 2024-2026., Yu Li, Chuxuan Lin, Zhihao Liu, Suna Zhang
+- 2025-2028., Hanxiao Sun
+- 2025-2027., Shihao Li, Ke Luo
   
 ## Research Projects
 - Led more than 10 research projects, including:
