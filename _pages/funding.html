@@ -7,34 +7,6 @@ author_profile: true
 
 {% include base_path %}
 
-<!-- 调试信息开始 -->
-<div style="background: #f5f5f5; padding: 10px; margin-bottom: 20px; border-left: 4px solid #007acc;">
-  <h3>调试信息</h3>
-  <ul>
-    <li><strong>总经费项目数</strong>: {{ site.funding | size }}</li>
-    <li><strong>外部经费数</strong>: {{ site.funding | where: "type", "External Funding" | size }}</li>
-    <li><strong>内部经费数</strong>: {{ site.funding | where: "type", "Internal Funding" | size }}</li>
-  </ul>
-  
-  {% if site.funding.size > 0 %}
-    <h4>所有经费项目:</h4>
-    <ul>
-    {% for post in site.funding %}
-      <li>
-        <strong>标题</strong>: {{ post.title }}<br>
-        <strong>类型</strong>: {{ post.type }}<br>
-        <strong>机构</strong>: {{ post.agency }}<br>
-        <strong>日期</strong>: {{ post.date }}<br>
-        <strong>文件路径</strong>: {{ post.path }}
-      </li>
-    {% endfor %}
-    </ul>
-  {% else %}
-    <p><strong>警告</strong>: 没有找到任何经费数据</p>
-  {% endif %}
-</div>
-<!-- 调试信息结束 -->
-
 <h2>External Funding</h2>
 
 {% assign external_funding = site.funding | where: "type", "External Funding" %}
