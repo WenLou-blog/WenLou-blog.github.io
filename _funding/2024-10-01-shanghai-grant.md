@@ -3,7 +3,9 @@ title: "Theoretical Framework and Implementation Path of Intelligent Data Sharin
 collection: funding
 type: "External Funding"
 agency: "Shanghai Planning Office of Philosophy and Social Sciences"
-amount: "￥80K"
+amount: "¥80,000"
 role: "Principal Investigator"
-term: "Oct 2024-Dec 2026."
+date: 2024-10-01
+enddate: 2026-12-31
+term: "Oct 2024 - Dec 2026"
 ---
