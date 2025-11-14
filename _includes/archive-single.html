@@ -38,69 +38,48 @@
       <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> {% include read-time.html %}</p>
     {% endif %}
 
-    {% if post.collection == 'teaching' %}
-          <div class="archive__item-teaching">
-            <h3 class="archive__item-subtitle">{{ post.title }}</h3>
-            <p class="teaching-meta">
-              {{ post.type }}, <i>{{ post.venue }}</i>, 
-              {% if post.term %}
-                {{ post.term }}
-              {% else %}
-                {{ post.date | default: "1900-01-01" | date: "%Y" }}
-                {% if post.enddate %}
-                  {% if post.enddate == "Present" or post.enddate == "present" %}
-                    - Present
-                  {% else %}
-                    - {{ post.enddate | date: "%Y" }}
-                  {% endif %}
-                {% endif %}
-              {% endif %}
-            </p>
-          </div>
-        {% elsif post.collection == 'publications' %}
-          <p>Published in <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} </p>
-        {% elsif post.collection == 'funding' %}
-          <div class="archive__item-funding">
-            <h3 class="archive__item-subtitle">{{ post.title }}</h3>
-            <p class="funding-agency">{{ post.agency }} | {{ post.amount }}</p>
-            <p class="funding-meta">
-              {{ post.role }} | 
-              {% if post.term %}
-                {{ post.term }}
-              {% else %}
-                {{ post.date | date: "%b %Y" }}
-                {% if post.enddate %}
-                  {% if post.enddate == "Present" or post.enddate == "present" %}
-                    - Present
-                  {% else %}
-                    - {{ post.enddate | date: "%b %Y" }}
-                  {% endif %}
-                {% endif %}
-              {% endif %}
-            </p>
-          </div>
-        {% elsif post.date %}
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ post.date | default: "1900-01-01" | date_to_xmlschema }}">{{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
+{% if post.collection == 'teaching' %}
+  <div class="archive__item-teaching">
+    <p class="teaching-meta">
+      {{ post.type }}, <i>{{ post.venue }}</i>, 
+      {% if post.term %}
+        {{ post.term }}
+      {% else %}
+        {{ post.date | default: "1900-01-01" | date: "%Y" }}
+        {% if post.enddate %}
+          {% if post.enddate == "Present" or post.enddate == "present" %}
+            - Present
+          {% else %}
+            - {{ post.enddate | date: "%Y" }}
+          {% endif %}
         {% endif %}
-        
-        {% if post.excerpt and site.read_more != 'enabled' %}
-        <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify }}</p>
-        {% elsif post.excerpt and site.read_more == 'enabled' %}
-        <p class="archive__item-excerpt" itemprop="description"><p>{{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}<strong><a href="{{ base_path }}{{ post.url }}" rel="permalink"> Read more</a></strong></p></p>
+      {% endif %}
+    </p>
+  </div>
+{% elsif post.collection == 'publications' %}
+  <p>Published in <i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }} </p>
+{% elsif post.collection == 'funding' %}
+  <div class="archive__item-funding">
+    <p class="funding-meta">
+      {{ post.agency }} | {{ post.amount }}<br>
+      {{ post.role }} | 
+      {% if post.term %}
+        {{ post.term }}
+      {% else %}
+        {{ post.date | date: "%b %Y" }}
+        {% if post.enddate %}
+          {% if post.enddate == "Present" or post.enddate == "present" %}
+            - Present
+          {% else %}
+            - {{ post.enddate | date: "%b %Y" }}
+          {% endif %}
         {% endif %}
-        
-        {% if post.citation and post.paperurl and post.slidesurl %}
-          <p>Recommended citation: {{ post.citation }}<br /><a href="{{ post.paperurl }}">Download Paper</a> | <a href="{{ post.slidesurl }}">Download Slides</a></p>
-        {% elsif post.citation and post.paperurl %}
-          <p>Recommended citation: {{ post.citation }}<br /><a href="{{ post.paperurl }}">Download Paper</a></p>
-        {% elsif post.citation and post.slidesurl %}
-          <p>Recommended citation: {{ post.citation }}<br /><a href="{{ post.slidesurl }}">Download Slides</a></p>
-        {% elsif post.citation %}
-          <p>Recommended citation: {{ post.citation }}</p>
-        {% elsif post.paperurl %}
-          <p><a href=" {{ post.paperurl }} ">Download Paper</a></p>
-        {% elsif post.slidesurl %}
-          <p><a href="{{ post.slidesurl }}">Download Slides</a></p>
-        {% endif %}
+      {% endif %}
+    </p>
+  </div>
+{% elsif post.date %}
+  <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ post.date | default: "1900-01-01" | date_to_xmlschema }}">{{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
+{% endif %}
+    
   </article>
 </div>
