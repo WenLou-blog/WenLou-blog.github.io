@@ -1,7 +1,7 @@
 ---
 layout: archive
-title: "Teaching"
 permalink: /teaching/
+title: "Teaching"
 author_profile: true
 ---
 
@@ -10,13 +10,35 @@ author_profile: true
 <h2>East China Normal University</h2>
 
 {% assign ecnu_teaching = site.teaching | where: "venue", "East China Normal University" %}
-{% for post in ecnu_teaching reversed %}
-  {% include archive-single.html %}
-{% endfor %}
+
+{% if ecnu_teaching.size == 0 %}
+  <p style="color: #666; font-style: italic;">暂无教学数据</p>
+{% else %}
+  {% capture written_year %}'None'{% endcapture %}
+  {% for post in ecnu_teaching reversed %}
+    {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
+    {% if year != written_year %}
+      <h3 id="ecnu-{{ year | slugify }}" class="archive__subtitle">{{ year }}</h3>
+      {% capture written_year %}{{ year }}{% endcapture %}
+    {% endif %}
+    {% include archive-single.html %}
+  {% endfor %}
+{% endif %}
 
 <h2>Wuhan University / Central China Normal University</h2>
 
-{% assign other_teaching = site.teaching | where: "venue", "Wuhan University/Central China Normal University" %}
-{% for post in other_teaching reversed %}
-  {% include archive-single.html %}
-{% endfor %}
+{% assign other_teaching = site.teaching | where: "venue", "Wuhan University / Central China Normal University" %}
+
+{% if other_teaching.size == 0 %}
+  <p style="color: #666; font-style: italic;">暂无教学数据</p>
+{% else %}
+  {% capture written_year %}'None'{% endcapture %}
+  {% for post in other_teaching reversed %}
+    {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
+    {% if year != written_year %}
+      <h3 id="other-{{ year | slugify }}" class="archive__subtitle">{{ year }}</h3>
+      {% capture written_year %}{{ year }}{% endcapture %}
+    {% endif %}
+    {% include archive-single.html %}
+  {% endfor %}
+{% endif %}
