@@ -9,3 +9,4 @@ date: 2018-06-01
 enddate: 2021-12-31
 term: "June 2018-Dec 2021"
 ---
+18.01% acceptance rate
