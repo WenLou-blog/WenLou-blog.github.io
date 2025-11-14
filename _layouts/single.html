@@ -50,11 +50,26 @@ layout: default
               {% endif %}
             {% endif %}
           </p>
+        {% elsif page.collection == 'funding' %}
+          <p>
+            <strong>Funding Agency:</strong> {{ page.agency }}<br>
+            <strong>Amount:</strong> {{ page.amount }}<br>
+            <strong>Role:</strong> {{ page.role }}<br>
+            <strong>Duration:</strong> 
+            {% if page.term %}
+              {{ page.term }}
+            {% else %}
+              {{ page.date | date: "%B %Y" }} - {{ page.enddate | date: "%B %Y" }}
+            {% endif %}
+            {% if page.grant_id %}
+              <br><strong>Grant ID:</strong> {{ page.grant_id }}
+            {% endif %}
+          </p>
         {% elsif page.venue and page.date %}
           <p>Published in <i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }} </p>
         {% elsif page.date %}
-          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
-        {% endif %}    
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ page.date | default: "1900-01-01" | date_to_xmlschema }}">{{ page.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
+        {% endif %}
         </header>
       {% endunless %}
 
