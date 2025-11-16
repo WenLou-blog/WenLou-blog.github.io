@@ -7,6 +7,19 @@ author_profile: true
 
 {% include base_path %}
 
+<!-- 调试信息 -->
+<div style="background: #f5f5f5; padding: 10px; margin-bottom: 20px;">
+  <h3>调试信息</h3>
+  <p><strong>Service 项目数:</strong> {{ site.service | size }}</p>
+  {% for post in site.service %}
+    <p>
+      <strong>标题:</strong> {{ post.title }} | 
+      <strong>链接:</strong> {{ post.url }} | 
+      <strong>文件路径:</strong> {{ post.path }}
+    </p>
+  {% endfor %}
+</div>
+
 <h2>Professional Organizations</h2>
 
 {% assign org_service = site.service | where: "category", "Professional Organizations" %}
