@@ -65,6 +65,32 @@ layout: default
               <br><strong>Grant ID:</strong> {{ page.grant_id }}
             {% endif %}
           </p>
+        {% elsif page.collection == 'service' %}
+          <div class="service-details">
+            {% if page.organization %}
+              <p><strong>Organization:</strong> {{ page.organization }}</p>
+            {% endif %}
+            {% if page.role %}
+              <p><strong>Role:</strong> {{ page.role }}</p>
+            {% endif %}
+            {% if page.period %}
+              <p><strong>Period:</strong> {{ page.period }}</p>
+            {% elsif page.date %}
+              <p><strong>Period:</strong> {{ page.date | date: "%Y" }}
+              {% if page.enddate %}
+                {% if page.enddate == "Present" or page.enddate == "present" %}
+                  - Present
+                {% else %}
+                  - {{ page.enddate | date: "%Y" }}
+                {% endif %}
+              {% endif %}
+              </p>
+            {% endif %}
+            {% if page.description %}
+              <p><strong>Description:</strong> {{ page.description }}</p>
+            {% endif %}
+          </div>
+          
         {% elsif page.venue and page.date %}
           <p>Published in <i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }} </p>
         {% elsif page.date %}
