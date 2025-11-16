@@ -5,4 +5,5 @@ category: "Professional Organizations"
 organization: "ASIS&T2021"
 date: 2020-01-01
 enddate: "Present"
+layout: single
 ---
