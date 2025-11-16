@@ -1,0 +1,36 @@
+---
+layout: archive
+permalink: /service/
+title: "Academic Service"
+author_profile: true
+---
+
+{% include base_path %}
+
+<h2>Professional Organizations</h2>
+
+{% assign org_service = site.service | where: "category", "Professional Organizations" %}
+{% for post in org_service %}
+  {% include archive-single-service.html %}
+{% endfor %}
+
+<h2>Reviewer and Editorial Board</h2>
+
+{% assign review_service = site.service | where: "category", "Reviewer and Editorial Board" %}
+{% for post in review_service %}
+  {% include archive-single-service.html %}
+{% endfor %}
+
+<h2>School/Department (ECNU-FEM/DIM)</h2>
+
+{% assign ecnu_service = site.service | where: "category", "School/Department (ECNU-FEM/DIM)" %}
+{% for post in ecnu_service %}
+  {% include archive-single-service.html %}
+{% endfor %}
+
+<h2>School (WHU-SIM/NJAU-CIT)</h2>
+
+{% assign other_school_service = site.service | where: "category", "School (WHU-SIM/NJAU-CIT)" %}
+{% for post in other_school_service %}
+  {% include archive-single-service.html %}
+{% endfor %}
