@@ -7,30 +7,134 @@ author_profile: true
 
 {% include base_path %}
 
+{% comment %} 提取所有service的年份并去重排序 {% endcomment %}
+{% assign all_years = "" | split: "" %}
+{% for post in site.service %}
+  {% if post.date %}
+    {% assign year = post.date | date: "%Y" %}
+  {% elsif post.period %}
+    {% assign period_parts = post.period | split: "-" %}
+    {% assign year = period_parts[0] | strip %}
+  {% else %}
+    {% continue %}
+  {% endif %}
+  {% assign all_years = all_years | push: year %}
+{% endfor %}
+
+{% assign unique_years = all_years | uniq | sort | reverse %}
+
 <h2>Professional Organizations</h2>
 
-{% assign org_service = site.service | where: "category", "Professional Organizations" | sort: "date" | reverse %}
-{% for post in org_service %}
-  {% include archive-single.html %}
+{% for year in unique_years %}
+  {% assign year_org_service = site.service | where: "category", "Professional Organizations" %}
+  {% assign year_posts = "" | split: "" %}
+  
+  {% for post in year_org_service %}
+    {% if post.date %}
+      {% assign post_year = post.date | date: "%Y" %}
+    {% elsif post.period %}
+      {% assign period_parts = post.period | split: "-" %}
+      {% assign post_year = period_parts[0] | strip %}
+    {% else %}
+      {% continue %}
+    {% endif %}
+    
+    {% if post_year == year %}
+      {% assign year_posts = year_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+  
+  {% if year_posts.size > 0 %}
+    <h3 class="archive__subtitle">{{ year }}</h3>
+    {% for post in year_posts %}
+      {% include archive-single.html %}
+    {% endfor %}
+  {% endif %}
 {% endfor %}
 
 <h2>Reviewer and Editorial Board</h2>
 
-{% assign review_service = site.service | where: "category", "Reviewer and Editorial Board" | sort: "date" | reverse %}
-{% for post in review_service %}
-  {% include archive-single.html %}
+{% for year in unique_years %}
+  {% assign year_review_service = site.service | where: "category", "Reviewer and Editorial Board" %}
+  {% assign year_posts = "" | split: "" %}
+  
+  {% for post in year_review_service %}
+    {% if post.date %}
+      {% assign post_year = post.date | date: "%Y" %}
+    {% elsif post.period %}
+      {% assign period_parts = post.period | split: "-" %}
+      {% assign post_year = period_parts[0] | strip %}
+    {% else %}
+      {% continue %}
+    {% endif %}
+    
+    {% if post_year == year %}
+      {% assign year_posts = year_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+  
+  {% if year_posts.size > 0 %}
+    <h3 class="archive__subtitle">{{ year }}</h3>
+    {% for post in year_posts %}
+      {% include archive-single.html %}
+    {% endfor %}
+  {% endif %}
 {% endfor %}
 
 <h2>School/Department (ECNU-FEM/DIM)</h2>
 
-{% assign ecnu_service = site.service | where: "category", "School/Department (ECNU-FEM/DIM)" | sort: "date" | reverse %}
-{% for post in ecnu_service %}
-  {% include archive-single.html %}
+{% for year in unique_years %}
+  {% assign year_ecnu_service = site.service | where: "category", "School/Department (ECNU-FEM/DIM)" %}
+  {% assign year_posts = "" | split: "" %}
+  
+  {% for post in year_ecnu_service %}
+    {% if post.date %}
+      {% assign post_year = post.date | date: "%Y" %}
+    {% elsif post.period %}
+      {% assign period_parts = post.period | split: "-" %}
+      {% assign post_year = period_parts[0] | strip %}
+    {% else %}
+      {% continue %}
+    {% endif %}
+    
+    {% if post_year == year %}
+      {% assign year_posts = year_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+  
+  {% if year_posts.size > 0 %}
+    <h3 class="archive__subtitle">{{ year }}</h3>
+    {% for post in year_posts %}
+      {% include archive-single.html %}
+    {% endfor %}
+  {% endif %}
 {% endfor %}
 
 <h2>School (WHU-SIM/NJAU-CIT)</h2>
 
-{% assign other_school_service = site.service | where: "category", "School (WHU-SIM/NJAU-CIT)" | sort: "date" | reverse %}
-{% for post in other_school_service %}
-  {% include archive-single.html %}
+{% for year in unique_years %}
+  {% assign year_other_service = site.service | where: "category", "School (WHU-SIM/NJAU-CIT)" %}
+  {% assign year_posts = "" | split: "" %}
+  
+  {% for post in year_other_service %}
+    {% if post.date %}
+      {% assign post_year = post.date | date: "%Y" %}
+    {% elsif post.period %}
+      {% assign period_parts = post.period | split: "-" %}
+      {% assign post_year = period_parts[0] | strip %}
+    {% else %}
+      {% continue %}
+    {% endif %}
+    
+    {% if post_year == year %}
+      {% assign year_posts = year_posts | push: post %}
+    {% endif %}
+  {% endfor %}
+  
+  {% if year_posts.size > 0 %}
+    <h3 class="archive__subtitle">{{ year }}</h3>
+    {% for post in year_posts %}
+      {% include archive-single.html %}
+    {% endfor %}
+  {% endif %}
 {% endfor %}
