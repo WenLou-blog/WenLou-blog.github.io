@@ -57,18 +57,33 @@
         </p>
       </div>
     {% elsif post.collection == 'publications' %}
-      <div class="archive__item-publications">
-        <p class="publications-meta">
-          {% if post.authors %}
-            {{ post.authors | replace: "Lou, W.", "<strong>Lou, W.</strong>" }}
-          {% endif %}
-          ({{ post.date | date: "%Y" }}). 
-          {% if post.venue %}<i>{{ post.venue }}</i>{% endif %}
-          {% if post.volume %}, {{ post.volume }}{% endif %}
-          {% if post.issue %}({{ post.issue }}){% endif %}
-          {% if post.pages %}, {{ post.pages }}{% endif %}
-        </p>
-      </div>
+      {% if post.category == 'Books' %}
+        <!-- 书籍专用格式 -->
+        <div class="archive__item-publications">
+          <p class="publications-meta">
+            {% if post.authors %}
+              {{ post.authors | replace: "Lou, W.", "<strong>Lou, W.</strong>" }}
+            {% endif %}
+            ({{ post.date | date: "%Y" }}). 
+            <i>{{ post.title }}</i>.
+            {% if post.publisher %}{{ post.publisher }}.{% endif %}
+          </p>
+        </div>
+      {% else %}
+        <!-- 原有的其他出版物格式 -->
+        <div class="archive__item-publications">
+          <p class="publications-meta">
+            {% if post.authors %}
+              {{ post.authors | replace: "Lou, W.", "<strong>Lou, W.</strong>" }}
+            {% endif %}
+            ({{ post.date | date: "%Y" }}). 
+            {% if post.venue %}<i>{{ post.venue }}</i>{% endif %}
+            {% if post.volume %}, {{ post.volume }}{% endif %}
+            {% if post.issue %}({{ post.issue }}){% endif %}
+            {% if post.pages %}, {{ post.pages }}{% endif %}
+          </p>
+        </div>
+      {% endif %}
     {% elsif post.collection == 'funding' %}
       <div class="archive__item-funding">
         <p class="funding-meta">
@@ -108,7 +123,7 @@
         </p>
       </div>
     {% elsif post.date %}
-      <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ post.date | default: "1900-01-01" | date_to_xmlschema }}">{{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
+      <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ post.date | default: "1900-01-01" | date_to_xmlschema }}">{{ post.date | default: "1900-01-01" | date: "%Y" }}</time></p>
     {% endif %}
     
   </article>
