@@ -26,27 +26,13 @@
       </div>
     {% endif %}
 
-    {% if post.collection == 'publications' and post.category == 'Books' %}
-      <!-- 书籍不显示标题 -->
-      <div class="archive__item-publications">
-        <p class="publications-meta">
-          {% if post.authors %}
-            {{ post.authors | replace: "Lou, W.", "<strong>Lou, W.</strong>" }}
-          {% endif %}
-          ({{ post.date | date: "%Y" }}). 
-          {% if post.publisher %}{{ post.publisher }}.{% endif %}
-        </p>
-      </div>
-    {% else %}
-      <!-- 其他内容显示标题 -->
-      <h2 class="archive__item-title" itemprop="headline">
-        {% if post.link %}
-          <a href="{{ post.link }}">{{ title }}</a> <a href="{{ base_path }}{{ post.url }}" rel="permalink"><i class="fa fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
-        {% else %}
-          <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ title }}</a>
-        {% endif %}
-      </h2>
-    {% endif %}
+    <h2 class="archive__item-title" itemprop="headline">
+      {% if post.link %}
+        <a href="{{ post.link }}">{{ title }}</a> <a href="{{ base_path }}{{ post.url }}" rel="permalink"><i class="fa fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
+      {% else %}
+        <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ title }}</a>
+      {% endif %}
+    </h2>
     
     {% if post.read_time %}
       <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> {% include read-time.html %}</p>
@@ -72,7 +58,16 @@
       </div>
     {% elsif post.collection == 'publications' %}
       {% if post.category == 'Books' %}
-        <!-- 书籍专用格式（已在上方处理） -->
+        <!-- 书籍专用格式：只显示作者、年份、出版社，不重复显示书名 -->
+        <div class="archive__item-publications">
+          <p class="publications-meta">
+            {% if post.authors %}
+              {{ post.authors | replace: "Lou, W.", "<strong>Lou, W.</strong>" }}
+            {% endif %}
+            ({{ post.date | date: "%Y" }}). 
+            {% if post.publisher %}{{ post.publisher }}.{% endif %}
+          </p>
+        </div>
       {% else %}
         <!-- 原有的其他出版物格式 -->
         <div class="archive__item-publications">
@@ -126,9 +121,7 @@
           {% endif %}
         </p>
       </div>
-    {% elsif post.date %}
-      <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ post.date | default: "1900-01-01" | date_to_xmlschema }}">{{ post.date | default: "1900-01-01" | date: "%Y" }}</time></p>
     {% endif %}
-    
+    <!-- 移除通用的日期显示行 -->
   </article>
 </div>
