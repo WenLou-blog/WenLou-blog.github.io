@@ -60,16 +60,7 @@
       <div class="archive__item-publications">
         <p class="publications-meta">
           {% if post.authors %}
-            {% assign authors = post.authors | split: ", " %}
-            {% assign authors = authors | split: " & " %}
-            {% for author in authors %}
-              {% if author == "Lou, W." or author == "Lou, W.*" %}
-                <strong>{{ author }}</strong>
-              {% else %}
-                {{ author }}
-              {% endif %}
-              {% unless forloop.last %}{% if forloop.rindex0 == 1 %} & {% else %}, {% endif %}{% endunless %}
-            {% endfor %}
+            {{ post.authors | replace: "Lou, W.", "<strong>Lou, W.</strong>" }}
           {% endif %}
           ({{ post.date | date: "%Y" }}). 
           {% if post.venue %}<i>{{ post.venue }}</i>{% endif %}
