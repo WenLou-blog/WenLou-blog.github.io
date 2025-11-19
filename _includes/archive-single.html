@@ -62,13 +62,13 @@
           {% if post.authors %}
             {% assign authors = post.authors | split: " & " %}
             {% for author in authors %}
-              {% if forloop.first %}
+              {% if author contains "Lou, W." %}
                 <strong>{{ author }}</strong>
               {% else %}
                 {{ author }}
               {% endif %}
               {% unless forloop.last %} & {% endunless %}
-            {% endfor %}. 
+            {% endfor %}
           {% endif %}
           ({{ post.date | date: "%Y" }}). 
           {% if post.venue %}<i>{{ post.venue }}</i>{% endif %}
