@@ -1,36 +1,62 @@
 ---
 layout: archive
-title: "Publications"
 permalink: /publications/
+title: "Publications"
 author_profile: true
 ---
 
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-{% endif %}
-
 {% include base_path %}
 
-<!-- New style rendering if publication categories are defined -->
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
-      {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
-    {% endfor %}
-  {% endfor %}
+<h2>Books</h2>
+
+{% assign books = site.publications | where: "category", "Books" %}
+
+{% if books.size == 0 %}
+  <p style="color: #666; font-style: italic;">暂无书籍数据</p>
 {% else %}
-  {% for post in site.publications reversed %}
+  {% capture written_year %}'None'{% endcapture %}
+  {% for post in books reversed %}
+    {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
+    {% if year != written_year %}
+      <h3 id="books-{{ year | slugify }}" class="archive__subtitle">{{ year }}</h3>
+      {% capture written_year %}{{ year }}{% endcapture %}
+    {% endif %}
     {% include archive-single.html %}
   {% endfor %}
 {% endif %}
 
+<h2>Referred Peer-Reviewed Journal Articles</h2>
 
+{% assign journals = site.publications | where: "category", "Journal Articles" %}
 
+{% if journals.size == 0 %}
+  <p style="color: #666; font-style: italic;">暂无期刊论文数据</p>
+{% else %}
+  {% capture written_year %}'None'{% endcapture %}
+  {% for post in journals reversed %}
+    {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
+    {% if year != written_year %}
+      <h3 id="journals-{{ year | slugify }}" class="archive__subtitle">{{ year }}</h3>
+      {% capture written_year %}{{ year }}{% endcapture %}
+    {% endif %}
+    {% include archive-single.html %}
+  {% endfor %}
+{% endif %}
+
+<h2>Referred Conference Presentations, Papers and Posters</h2>
+
+{% assign conferences = site.publications | where: "category", "Conference Papers" %}
+
+{% if conferences.size == 0 %}
+  <p style="color: #666; font-style: italic;">暂无会议论文数据</p>
+{% else %}
+  {% capture written_year %}'None'{% endcapture %}
+  {% for post in conferences reversed %}
+    {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
+    {% if year != written_year %}
+      <h3 id="conferences-{{ year | slugify }}" class="archive__subtitle">{{ year }}</h3>
+      {% capture written_year %}{{ year }}{% endcapture %}
+    {% endif %}
+    {% include archive-single.html %}
+  {% endfor %}
+{% endif %}
