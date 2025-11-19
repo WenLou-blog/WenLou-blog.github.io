@@ -1,123 +1,227 @@
+---
+layout: default
+---
+
 {% include base_path %}
 
-{% if post.header.teaser %}
-  {% capture teaser %}{{ post.header.teaser }}{% endcapture %}
-{% else %}
-  {% assign teaser = site.teaser %}
+{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
+  {% include page__hero.html %}
 {% endif %}
 
-{% if post.id %}
-  {% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
-{% else %}
-  {% assign title = post.title %}
+{% if page.url != "/" and site.breadcrumbs %}
+  {% unless paginator %}
+    {% include breadcrumbs.html %}
+  {% endunless %}
 {% endif %}
 
-<div class="{{ include.type | default: "list" }}__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    {% if include.type == "grid" and teaser %}
-      <div class="archive__item-teaser">
-        <img src=
-          {% if teaser contains "://" %}
-            "{{ teaser }}"
-          {% else %}
-            "{{ teaser | prepend: "/images/" | prepend: base_path }}"
+<div id="main" role="main">
+  {% include sidebar.html %}
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
+    {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
+    {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date: "%B %d, %Y" }}">{% endif %}
+    {% if page.modified %}<meta itemprop="dateModified" content="{{ page.modified | date: "%B %d, %Y" }}">{% endif %}
+
+    <div class="page__inner-wrap">
+      {% unless page.header.overlay_color or page.header.overlay_image %}
+        <header>
+          {% if page.title %}<h1 class="page__title" itemprop="headline">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>{% endif %}
+          {% if page.read_time %}
+            <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> {% include read-time.html %}</p>
           {% endif %}
-          alt="">
-      </div>
-    {% endif %}
-
-    <h2 class="archive__item-title" itemprop="headline">
-      {% if post.link %}
-        <a href="{{ post.link }}">{{ title }}</a> <a href="{{ base_path }}{{ post.url }}" rel="permalink"><i class="fa fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
-      {% else %}
-        <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ title }}</a>
-      {% endif %}
-    </h2>
-    
-    {% if post.read_time %}
-      <p class="page__meta"><i class="fa fa-clock" aria-hidden="true"></i> {% include read-time.html %}</p>
-    {% endif %}
-
-    {% if post.collection == 'teaching' %}
-      <div class="archive__item-teaching">
-        <p class="teaching-meta">
-          {{ post.type }}, <i>{{ post.venue }}</i>, 
-          {% if post.term %}
-            {{ post.term }}
-          {% else %}
-            {{ post.date | default: "1900-01-01" | date: "%Y" }}
-            {% if post.enddate %}
-              {% if post.enddate == "Present" or post.enddate == "present" %}
-                - Present
-              {% else %}
-                - {{ post.enddate | date: "%Y" }}
+        {% if page.modified %}
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ page.modified | date: "%Y-%m-%d" }}">{{ page.modified | date: "%B %d, %Y" }}</time></p>
+        {% endif %}
+        
+        {% if page.collection == 'teaching' %}
+          <p> 
+            {{ page.type }}, <i>{{ page.venue }}</i>, 
+            {% if page.term %}
+              {{ page.term }}
+            {% else %}
+              {{ page.date | default: "1900-01-01" | date: "%Y" }}
+              {% if page.enddate %}
+                {% if page.enddate == "Present" or page.enddate == "present" %}
+                  - Present
+                {% else %}
+                  - {{ page.enddate | date: "%Y" }}
+                {% endif %}
               {% endif %}
             {% endif %}
-          {% endif %}
-        </p>
-      </div>
-    {% elsif post.collection == 'publications' %}
-      <div class="archive__item-publications">
-        <p class="publications-meta">
-          {% if post.authors %}
-            {% assign authors = post.authors | split: " & " %}
-            {% for author in authors %}
-              {% if author contains "Lou, W." %}
-                <strong>{{ author }}</strong>
-              {% else %}
-                {{ author }}
+          </p>
+        {% elsif page.collection == 'funding' %}
+          <p>
+            <strong>Funding Agency:</strong> {{ page.agency }}<br>
+            <strong>Amount:</strong> {{ page.amount }}<br>
+            <strong>Role:</strong> {{ page.role }}<br>
+            <strong>Duration:</strong> 
+            {% if page.term %}
+              {{ page.term }}
+            {% else %}
+              {{ page.date | date: "%B %Y" }} - {{ page.enddate | date: "%B %Y" }}
+            {% endif %}
+            {% if page.grant_id %}
+              <br><strong>Grant ID:</strong> {{ page.grant_id }}
+            {% endif %}
+          </p>
+        {% elsif page.collection == 'service' %}
+          <div class="service-details">
+            {% if page.organization %}
+              <p><strong>Organization:</strong> {{ page.organization }}</p>
+            {% endif %}
+            {% if page.role %}
+              <p><strong>Role:</strong> {{ page.role }}</p>
+            {% endif %}
+            {% if page.period %}
+              <p><strong>Period:</strong> {{ page.period }}</p>
+            {% elsif page.date %}
+              <p><strong>Period:</strong> {{ page.date | date: "%Y" }}
+              {% if page.enddate %}
+                {% if page.enddate == "Present" or page.enddate == "present" %}
+                  - Present
+                {% else %}
+                  - {{ page.enddate | date: "%Y" }}
+                {% endif %}
               {% endif %}
-              {% unless forloop.last %} & {% endunless %}
+              </p>
+            {% endif %}
+            {% if page.description %}
+              <p><strong>Description:</strong> {{ page.description }}</p>
+            {% endif %}
+          </div>
+          
+        {% elsif page.venue and page.date %}
+          <p>Published in <i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }} </p>
+        {% elsif page.date %}
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ page.date | default: "1900-01-01" | date_to_xmlschema }}">{{ page.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
+        {% endif %}
+        </header>
+      {% endunless %}
+
+      <section class="page__content" itemprop="text">
+        {{ content }}
+
+        {% if page.citation and page.paperurl and page.slidesurl %}
+          <p style="font-size: smaller">Recommended citation: 
+            {% assign citation_parts = page.citation | split: ". " %}
+            {% for part in citation_parts %}
+              {% if forloop.first %}
+                {% assign authors_part = part %}
+                {% assign authors = authors_part | split: " & " %}
+                {% for author in authors %}
+                  {% if author contains "Lou, W." %}
+                    <strong>{{ author }}</strong>
+                  {% else %}
+                    {{ author }}
+                  {% endif %}
+                  {% unless forloop.last %} & {% endunless %}
+                {% endfor %}. 
+              {% else %}
+                {{ part }}{% unless forloop.last %}. {% endunless %}
+              {% endif %}
             {% endfor %}
-          {% endif %}
-          ({{ post.date | date: "%Y" }}). 
-          {% if post.venue %}<i>{{ post.venue }}</i>{% endif %}
-          {% if post.volume %}, {{ post.volume }}{% endif %}
-          {% if post.issue %}({{ post.issue }}){% endif %}
-          {% if post.pages %}, {{ post.pages }}{% endif %}
-        </p>
-      </div>
-    {% elsif post.collection == 'funding' %}
-      <div class="archive__item-funding">
-        <p class="funding-meta">
-          {{ post.agency }} | {{ post.amount }}<br>
-          {{ post.role }} | 
-          {% if post.term %}
-            {{ post.term }}
-          {% else %}
-            {{ post.date | date: "%b %Y" }}
-            {% if post.enddate %}
-              {% if post.enddate == "Present" or post.enddate == "present" %}
-                - Present
+            <br /><a href="{{ page.paperurl }}">Download Paper</a> | <a href="{{ page.slidesurl }}">Download Slides</a>
+          </p>
+        {% elsif page.citation and page.paperurl %}
+          <p style="font-size: smaller">Recommended citation: 
+            {% assign citation_parts = page.citation | split: ". " %}
+            {% for part in citation_parts %}
+              {% if forloop.first %}
+                {% assign authors_part = part %}
+                {% assign authors = authors_part | split: " & " %}
+                {% for author in authors %}
+                  {% if author contains "Lou, W." %}
+                    <strong>{{ author }}</strong>
+                  {% else %}
+                    {{ author }}
+                  {% endif %}
+                  {% unless forloop.last %} & {% endunless %}
+                {% endfor %}. 
               {% else %}
-                - {{ post.enddate | date: "%b %Y" }}
+                {{ part }}{% unless forloop.last %}. {% endunless %}
               {% endif %}
-            {% endif %}
-          {% endif %}
-        </p>
-      </div>
-    {% elsif post.collection == 'service' %}
-      <div class="archive__item-service">
-        <p class="service-meta">
-          {% if post.organization %}<i>{{ post.organization }}</i> | {% endif %}
-          {% if post.role %}{{ post.role }} | {% endif %}
-          {% if post.period %}
-            {{ post.period }}
-          {% else %}
-            {{ post.date | date: "%Y" }}
-            {% if post.enddate %}
-              {% if post.enddate == "Present" or post.enddate == "present" %}
-                - Present
+            {% endfor %}
+            <br /><a href="{{ page.paperurl }}">Download Paper</a>
+          </p>
+        {% elsif page.citation and page.slidesurl %}
+          <p style="font-size: smaller">Recommended citation: 
+            {% assign citation_parts = page.citation | split: ". " %}
+            {% for part in citation_parts %}
+              {% if forloop.first %}
+                {% assign authors_part = part %}
+                {% assign authors = authors_part | split: " & " %}
+                {% for author in authors %}
+                  {% if author contains "Lou, W." %}
+                    <strong>{{ author }}</strong>
+                  {% else %}
+                    {{ author }}
+                  {% endif %}
+                  {% unless forloop.last %} & {% endunless %}
+                {% endfor %}. 
               {% else %}
-                - {{ post.enddate | date: "%Y" }}
+                {{ part }}{% unless forloop.last %}. {% endunless %}
               {% endif %}
-            {% endif %}
-          {% endif %}
-        </p>
-      </div>
-    {% elsif post.date %}
-      <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Published:" }}</strong> <time datetime="{{ post.date | default: "1900-01-01" | date_to_xmlschema }}">{{ post.date | default: "1900-01-01" | date: "%B %d, %Y" }}</time></p>
+            {% endfor %}
+            <br /><a href="{{ page.slidesurl }}">Download Slides</a>
+          </p>
+        {% elsif page.citation %}
+          <p style="font-size: smaller">Recommended citation: 
+            {% assign citation_parts = page.citation | split: ". " %}
+            {% for part in citation_parts %}
+              {% if forloop.first %}
+                {% assign authors_part = part %}
+                {% assign authors = authors_part | split: " & " %}
+                {% for author in authors %}
+                  {% if author contains "Lou, W." %}
+                    <strong>{{ author }}</strong>
+                  {% else %}
+                    {{ author }}
+                  {% endif %}
+                  {% unless forloop.last %} & {% endunless %}
+                {% endfor %}. 
+              {% else %}
+                {{ part }}{% unless forloop.last %}. {% endunless %}
+              {% endif %}
+            {% endfor %}
+          </p>
+        {% elsif page.slidesurl %}
+          <p style="font-size: smaller"><a href="{{ page.slidesurl }}">Download Slides</a></p>
+        {% endif %}
+
+        {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
+      </section>
+
+      <footer class="page__meta">
+        {% if site.data.ui-text[site.locale].meta_label %}
+          <h4 class="page__meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
+        {% endif %}
+        {% unless page.collection == 'service' %}
+          {% include page__taxonomy.html %}
+        {% endunless %}
+      </footer>
+
+      {% if page.share %}{% include social-share.html %}{% endif %}
+
+      {% include post_pagination.html %}
+    </div>
+
+    {% if site.comments.provider and page.comments %}
+      {% include comments.html %}
     {% endif %}
-    
   </article>
+
+  {% comment %}<!-- only show related on a post page when not disabled -->{% endcomment %}
+  {% if page.id and page.related and site.related_posts.size > 0 %}
+    <div class="page__related">
+      {% if site.data.ui-text[site.locale].related_label %}
+        <h4 class="page__related-title">{{ site.data.ui-text[site.locale].related_label | default: "You May Also Enjoy" }}</h4>
+      {% endif %}
+      <div class="grid__wrapper">
+        {% for post in site.related_posts limit:4 %}
+          {% include archive-single.html type="grid" %}
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
 </div>
