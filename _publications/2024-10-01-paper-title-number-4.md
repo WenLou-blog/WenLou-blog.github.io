@@ -1,10 +1,13 @@
 ---
-title: "Rhetorical structure parallels research topic in LIS articles: a temporal bibliometrics examination."
+title: "Rhetorical structure parallels research topic in LIS articles: a temporal bibliometrics examination"
 collection: publications
-category: manuscripts
-permalink: /publication/2024-10-01-paper-title-number-4
-excerpt: '__Lou, W.__, He, J., Xu, Q., Zhu, Z., Lu, Q., & Zhu, Y.'
-date: 2024-10-01
-venue: 'Aslib Journal of Information Management'
+category: "Journal Articles"
+date: 2024-01-01
+authors: "Lou, W., He, J., Xu, Q., Zhu, Z., Lu, Q., & Zhu, Y."
+venue: "Aslib Journal of Information Management"
+volume: "76"
+issue: "3"
+pages: "416-434"
+citation: "<strong>Lou, W.</strong>, He, J., Xu, Q., Zhu, Z., Lu, Q., & Zhu, Y. (2024). Rhetorical structure parallels research topic in LIS articles: a temporal bibliometrics examination. Aslib Journal of Information Management, 76(3), 416-434."
+paperurl: "https://doi.org/10.1108/ajim-08-2022-0370"
 ---
-[Download PDF](https://doi.org/10.1108/ajim-08-2022-0370 )
