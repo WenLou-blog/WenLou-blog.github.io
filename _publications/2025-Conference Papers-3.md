@@ -8,4 +8,5 @@ venue: "Proceedings of the Association for Information Science and Technology"
 venue_abbr: "ASIS&T"
 location: "Conference Location"
 citation: "He, J. & <strong>Lou, W.</strong> (2025). How Academic Structure Shapes Research Focus in Library and Information Science Schools. Proceedings of the Association for Information Science and Technology."
+paperurl: "https://doi.org/10.1002/pra2.1439"
 ---
