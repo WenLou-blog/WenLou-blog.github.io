@@ -10,4 +10,5 @@ location: "Conference Location"
 pages: "2412-2414"
 publisher: "International Society for Scientometrics and Informetrics"
 citation: "Tang, W., & <strong>Lou, W*.</strong> (2025). Attempts to Enable Generative AI for Topic Recognition: A Case Study of ChatGPT. In 20th International Conference on Scientometrics and Informetrics, ISSI 2025 - Proceedings (pp.2412-2414). International Society for Scientometrics and Informetrics."
+paperurl: "https://doi.org/10.51408/issi2025_208"
 ---
